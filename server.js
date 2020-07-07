@@ -98,7 +98,7 @@ app.listen(PORT, () => {
 function validateUser(users) {
     const schema = {
         email: Joi.string().required(),
-        phone: Joi.string().min(10).max(10).required(),
+        phone: Joi.string().length(10).regex(/^[0-9]+$/).required(),
         password: Joi.string().required()
     };
     return Joi.validate(users, schema);
